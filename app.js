@@ -24,6 +24,7 @@ const complianceIssueRoutes = require('./routes/complianceIssueRoutes');
 const departmentScoreRoutes = require('./routes/departmentScoreRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 
 const app = express();
 
@@ -74,6 +75,7 @@ app.use('/api/compliance-issues', complianceIssueRoutes);
 app.use('/api/department-scores', departmentScoreRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/ai', aiRoutes);
 
 // ---------- Error Handling ----------
 app.use(notFound);

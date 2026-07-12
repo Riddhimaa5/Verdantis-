@@ -9,7 +9,14 @@
     "dev": "nodemon server.js",
     "seed": "node utils/seed.js"
   },
-  "keywords": ["esg", "sustainability", "carbon", "csr", "express", "mongodb"],
+  "keywords": [
+    "esg",
+    "sustainability",
+    "carbon",
+    "csr",
+    "express",
+    "mongodb"
+  ],
   "author": "Verdantis Team",
   "license": "MIT",
   "dependencies": {
@@ -20,7 +27,8 @@
     "express-validator": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "verdantis-ai": "file:../verdantis-ai-module/verdantis-ai"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
