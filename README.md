@@ -1,196 +1,281 @@
-# Verdantis AI Module
+# 🌱 Verdantis – AI-Powered ESG Management Platform
 
-AI-powered functionality for the **Verdantis ESG Management Platform**, built to be dropped into any frontend/backend (React, Odoo, plain HTML/JS, Express, etc.) as an independent, self-contained module.
-
-This module owns **only** AI logic. It has no opinion about auth, databases, routing, or UI — the parent app is expected to fetch the ESG data, call these functions, and render the results.
+> **Verdantis** is an AI-powered ESG (Environmental, Social & Governance) Management Platform that enables organizations to measure, manage, and improve their sustainability initiatives through intelligent analytics, compliance monitoring, CSR management, and AI-driven insights.
 
 ---
 
-## 1. Setup
+## 🚀 Overview
+
+Organizations today struggle to efficiently track ESG performance, ensure governance compliance, monitor carbon emissions, and engage employees in sustainability initiatives.
+
+**Verdantis** solves these challenges by combining modern web technologies with Artificial Intelligence to provide a centralized platform for ESG management.
+
+The platform enables organizations to:
+
+- 🌍 Monitor environmental impact
+- 🤝 Manage CSR initiatives
+- 🏛 Ensure governance compliance
+- 📊 Generate ESG reports
+- 🤖 Receive AI-powered recommendations
+- 🏆 Improve employee engagement through sustainability challenges
+
+---
+
+# ✨ Key Features
+
+## 🌍 Environmental Management
+
+- Carbon emission tracking
+- Energy & fuel consumption monitoring
+- Environmental score calculation
+- Sustainability analytics
+- Green initiative tracking
+
+---
+
+## 🤝 CSR Management
+
+- CSR activity creation & management
+- Employee participation tracking
+- Volunteer hour monitoring
+- CSR statistics dashboard
+- Activity approval workflow
+
+---
+
+## 🏛 Governance & Compliance
+
+- Policy management
+- Compliance monitoring
+- Audit tracking
+- Governance score calculation
+- Employee acknowledgement tracking
+
+---
+
+## 📈 ESG Reports & Analytics
+
+Generate comprehensive reports including:
+
+- Executive ESG Summary
+- Environmental Analysis
+- Social Impact Report
+- Governance Report
+- Compliance Overview
+- Carbon Footprint Summary
+- CSR Participation Report
+
+Reports support:
+
+- CSV Export
+- PDF Printing
+- Executive Dashboard
+
+---
+
+## 🏆 Sustainability Challenges
+
+Gamified employee engagement through:
+
+- Eco Challenges
+- Leaderboards
+- Achievement Tracking
+- Reward System
+- Progress Monitoring
+
+---
+
+## 🤖 AI Assistant
+
+Powered by **Google Gemini AI**, Verdantis provides:
+
+- ESG Recommendations
+- Executive Report Generation
+- ESG Score Simulation
+- Green Sustainability Tips
+- Intelligent ESG Chatbot
+
+---
+
+# 🧠 AI Capabilities
+
+The AI module includes:
+
+- Personalized ESG recommendations
+- Executive report generation
+- ESG score prediction
+- Sustainability improvement suggestions
+- Natural language ESG assistant
+
+---
+
+# 🏗 Project Architecture
+
+```
+Verdantis
+│
+├── frontend/                 # React + Vite Frontend
+│
+├── backend/                  # Express Backend API
+│
+├── ai/                       # AI Services
+│   ├── config/
+│   ├── prompts/
+│   ├── services/
+│   ├── utils/
+│   └── index.js
+│
+├── verdantis-ai-module/      # Standalone AI Package
+│
+├── README.md
+└── .env.example
+```
+
+---
+
+# 🛠 Tech Stack
+
+### Frontend
+
+- React.js
+- Vite
+- Tailwind CSS
+- JavaScript
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- REST APIs
+
+### Artificial Intelligence
+
+- Google Gemini API
+- Prompt Engineering
+- ESG Analytics Engine
+
+### Tools
+
+- Git & GitHub
+- npm
+- Postman
+
+---
+
+# 📦 Installation
+
+## 1. Clone Repository
 
 ```bash
-cd ai-module        # wherever you place this folder in your repo
+git clone https://github.com/Riddhimaa5/Verdantis-.git
+```
+
+---
+
+## 2. Frontend
+
+```bash
+cd frontend
 npm install
-cp .env.example .env
-# then edit .env and add your real GEMINI_API_KEY
+npm run dev
 ```
 
-Requires **Node.js 18+** (uses the built-in `fetch`).
+---
 
-Get a Gemini API key at: https://aistudio.google.com/app/apikey
-
-Run the demo script (exercises all 5 features):
+## 3. Backend
 
 ```bash
-npm test
+cd backend
+npm install
+npm start
 ```
 
 ---
 
-## 2. Folder Structure
+## 4. AI Module
+
+```bash
+cd ai
+npm install
+```
+
+Create a `.env` file using `.env.example`
 
 ```
+GEMINI_API_KEY=YOUR_API_KEY
+```
+
+---
+
+# 📊 ESG Modules
+
+| Module | Description |
+|---------|-------------|
+| Environmental | Carbon & energy tracking |
+| Social | CSR participation management |
+| Governance | Compliance & policy monitoring |
+| Reports | Executive ESG reporting |
+| AI | ESG intelligence & recommendations |
+| Challenges | Employee sustainability engagement |
+
+---
+
+# 🤖 AI Functions
+
+The AI engine supports:
+
+- ESG Recommendation Generation
+- Executive Report Creation
+- ESG Score Simulation
+- Green Tips Generator
+- ESG Chat Assistant
+
+---
+
+# 📂 Repository Structure
+
+```
+frontend/
+backend/
 ai/
-│
-├── prompts/              # Prompt templates only — no business logic
-│   ├── advisorPrompt.js
-│   ├── reportPrompt.js
-│   ├── greenTipPrompt.js
-│   └── chatbotPrompt.js
-│
-├── services/              # Business logic — validation + AI calls
-│   ├── geminiService.js       # low-level Gemini API wrapper
-│   ├── advisorService.js      # Feature 1
-│   ├── reportService.js       # Feature 2
-│   ├── simulatorService.js    # Feature 3
-│   ├── greenTipService.js     # Feature 4
-│   └── chatbotService.js      # Feature 5
-│
-├── utils/
-│   ├── scoreCalculator.js # deterministic ESG scoring math
-│   └── validators.js      # input validation/sanitisation
-│
-├── config/
-│   └── geminiConfig.js    # API key, model name, generation defaults
-│
-├── test/
-│   └── manualTest.js      # runnable demo of all 5 features
-│
-└── index.js               # ⭐ single import point for the whole module
-```
-
-**Integration rule of thumb:** only ever `require('./ai')` (i.e. `ai/index.js`). Internal files may be refactored; the exports below are the stable contract.
-
----
-
-## 3. API Reference
-
-Every function returns `{ success: boolean, ...data, errors?: string[] }`. Always check `success` before using the payload — invalid input or an AI failure never throws, it returns `success: false` with human-readable `errors`.
-
-### ESG Data Shape (used by most functions)
-
-```js
-{
-  environmentalScore: 58,        // 0-100
-  socialScore: 72,               // 0-100
-  governanceScore: 64,           // 0-100
-  carbonEmissions: 1450,         // tons CO2e, >= 0
-  electricityConsumption: 18500, // kWh, >= 0
-  fuelConsumption: 3200,         // litres, >= 0
-  csrParticipation: 45,          // %, 0-100
-  employeeEngagement: 68,        // %, 0-100
-  compliancePercentage: 61,      // %, 0-100
-  auditStatus: 'pending'         // 'completed' | 'pending' | 'in-progress' | 'overdue'
-}
-```
-
-### 1. `getEsgRecommendations(esgData)`
-
-Returns exactly 5 ESG recommendations.
-
-```js
-const { getEsgRecommendations } = require('./ai');
-
-const result = await getEsgRecommendations(esgData);
-// { success: true, recommendations: [
-//   { title: 'Reduce electricity consumption', detail: '...', priority: 'high' },
-//   ... 5 total
-// ] }
-```
-
-### 2. `generateExecutiveReport(esgData, meta?)`
-
-`meta` (optional): `{ companyName, industry, reportingPeriod }`
-
-```js
-const result = await generateExecutiveReport(esgData, {
-  companyName: 'Acme Ltd.',
-  industry: 'Manufacturing',
-  reportingPeriod: 'Q2 2026',
-});
-// { success: true, report: {
-//   executiveSummary, environmentalAnalysis, socialAnalysis,
-//   governanceAnalysis, esgScoreSummary, risksIdentified,
-//   recommendations, overallEsgRating, generatedAt, ...
-// } }
-```
-
-### 3. `simulateEsgScores(input, baseline?)` — instant, no AI call
-
-For live "what-if" sliders. Pure math, safe to call on every UI change.
-
-```js
-const { simulateEsgScores } = require('./ai');
-
-const result = simulateEsgScores({
-  electricityConsumption: 12000,
-  fuelConsumption: 2500,
-  csrParticipation: 70,
-  compliancePercentage: 85,
-});
-// { success: true, result: {
-//   environmentalScore, socialScore, governanceScore, overallScore, rating
-// } }
-```
-
-Optional AI narration once a user settles on a scenario:
-
-```js
-const { getSimulationInsight } = require('./ai');
-const insight = await getSimulationInsight(beforeResult, afterResult);
-// { success: true, insight: "Overall score rose 12 points, driven mainly by..." }
-```
-
-### 4. `getGreenTip(esgData)`
-
-```js
-const result = await getGreenTip(esgData);
-// { success: true, tip: "Switching office lighting to LED bulbs could reduce..." }
-```
-
-### 5. `askVerdantisAI({ message, history?, esgContext? })`
-
-Stateless chat — the caller stores and re-sends `history`.
-
-```js
-const { askVerdantisAI } = require('./ai');
-
-let history = [];
-const turn1 = await askVerdantisAI({
-  message: 'How can we improve our ESG score?',
-  esgContext: esgData, // optional, grounds answers in real numbers
-});
-history = turn1.history;
-
-const turn2 = await askVerdantisAI({
-  message: 'What about carbon emissions specifically?',
-  history,
-});
+verdantis-ai-module/
+README.md
 ```
 
 ---
 
-## 4. Integration Notes
+# 🔒 Environment Variables
 
-- **React:** call these functions from a backend API route (never expose `GEMINI_API_KEY` to the browser). Wrap each in an Express/Next.js handler that just forwards `req.body` and returns the JSON result.
-- **Odoo:** wrap `index.js` in a small Node microservice and call it from an Odoo controller via HTTP, or port the same prompt/service structure to Python if the integration needs to stay in-process.
-- **Plain HTML/JS:** same as React — this module must run server-side; the frontend calls your backend endpoint, not this module directly.
-- All functions are **async except `simulateEsgScores`**, which is synchronous by design for instant UI feedback.
-- No database, session, or auth logic lives here by design — pass in whatever ESG data your backend already fetched.
-
----
-
-## 5. Error Handling
-
-- Invalid/missing input → `{ success: false, errors: ['Missing required field: "carbonEmissions".', ...] }`, no AI call is made.
-- Gemini API failure (network, rate limit, bad key) → retried up to 3 times with backoff, then `{ success: false, errors: ['... failed: ...'] }`.
-- `getEsgRecommendations` always returns exactly 5 items even if the AI returns fewer — deterministic fallbacks pad the list.
-- `generateExecutiveReport` cross-checks the AI's overall score against a deterministic calculation and fills gaps if the AI omits them.
+```
+GEMINI_API_KEY=
+MONGO_URI=
+JWT_SECRET=
+PORT=
+```
 
 ---
 
-## 6. Extending
+# 🌟 Future Scope
 
-- To change AI wording: edit files in `ai/prompts/` only.
-- To change scoring formulas: edit `ai/utils/scoreCalculator.js` only.
-- To swap AI providers: only `ai/services/geminiService.js` and `ai/config/geminiConfig.js` need to change — every other file calls the provider-agnostic `callGemini*` functions.
+- IoT Sensor Integration
+- Real-time Carbon Monitoring
+- Blockchain ESG Verification
+- Predictive Sustainability Analytics
+- Multi-language AI Assistant
+- Mobile Application
+- ESG Benchmarking Across Organizations
+
+---
+
+# 👥 Team
+
+**Verdantis Development Team**
+
+- Riddhima Agarwal
+- Adeeba Khanum
+- Shivani Sundareswaran
+- Sai Sowmya
+
+---
+
