@@ -1,0 +1,17 @@
+{
+  "name": "verdantis-ai",
+  "version": "1.0.0",
+  "description": "AI module for Verdantis ESG Management Platform - advisor, report generator, simulator, green tips, and chat assistant, powered by Google Gemini.",
+  "main": "ai/index.js",
+  "scripts": {
+    "test": "node ai/test/manualTest.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "keywords": ["esg", "ai", "gemini", "sustainability", "verdantis"],
+  "license": "MIT"
+}
